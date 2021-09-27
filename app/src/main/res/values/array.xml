@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="recharge">
+        <item>Renewal Type</item>
+        <item>Platinum plan</item>
+        <item>Gold plan</item>
+        <item>Silver plan</item>
+
+    </string-array>
+
+    <string-array name="regi_type">
+        <item>Registration Type</item>
+        <item>Doctor</item>
+        <item>Merchant</item>
+
+    </string-array>
+
+</resources>
