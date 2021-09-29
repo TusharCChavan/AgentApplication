@@ -24,18 +24,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_xlarge"
                 android:text="Renewal Customer/ Patient"
+                android:fontFamily="@font/poppins_bold"
                 android:textSize="18sp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+
                 android:layout_margin="@dimen/activity_horizontal_margin">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/mobile"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
                     android:hint="Mobile Number"
                     android:inputType="number"
                     android:paddingBottom="16.0dip" />
@@ -49,10 +52,12 @@
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                 android:clickable="true"
                 android:gravity="center"
+                android:fontFamily="@font/poppins_semibold"
+
                 android:text="Verify Number"
                 android:textAlignment="center"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/button_color"
                 android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -62,13 +67,15 @@
                 android:layout_margin="@dimen/activity_horizontal_margin"
                 app:endIconDrawable="@drawable/ic_option"
                 app:endIconMode="custom"
-                app:endIconTint="@color/colorPrimary">
+                app:endIconTint="@color/button_color">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/username"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:focusable="false"
+                    android:fontFamily="@font/poppins_regular"
+
                     android:hint="Username"
 
                     android:paddingBottom="16.0dip" />
@@ -81,7 +88,7 @@
                 android:layout_margin="@dimen/activity_horizontal_margin"
                 app:endIconDrawable="@drawable/ic_option"
                 app:endIconMode="custom"
-                app:endIconTint="@color/colorPrimary">
+                app:endIconTint="@color/button_color">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/recharge_type"
@@ -89,6 +96,7 @@
                     android:layout_height="wrap_content"
                     android:focusable="false"
                     android:hint="Recharge Type"
+                    android:fontFamily="@font/poppins_regular"
 
                     android:paddingBottom="16.0dip" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -106,6 +114,8 @@
                     android:hint="Renewal Amount"
                     android:focusable="false"
                     android:text="0"
+                    android:fontFamily="@font/poppins_regular"
+
                     android:inputType="number"
                     android:paddingBottom="16.0dip" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -121,6 +131,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:hint="OTP"
+                    android:fontFamily="@font/poppins_regular"
+
                     android:inputType="number"
                     android:paddingBottom="16.0dip" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -149,13 +161,14 @@
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
-        android:background="@color/blue_600">
+        android:background="@color/button_color">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="RECHARGE"
+            android:fontFamily="@font/poppins_semibold"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
             android:textColor="@android:color/white" />
     </com.balysv.materialripple.MaterialRippleLayout>

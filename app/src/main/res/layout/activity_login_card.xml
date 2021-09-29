@@ -25,20 +25,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_middle"
-                android:layout_marginLeft="@dimen/spacing_medium"
                 android:layout_marginStart="@dimen/spacing_medium"
+                android:layout_marginLeft="@dimen/spacing_medium"
+                android:layout_marginBottom="@dimen/spacing_middle"
+                android:fontFamily="@font/poppins_semibold"
                 android:text="Sign In"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textColor="@color/blue_600"
+                android:textColor="@color/button_color"
                 android:textStyle="bold" />
 
             <View
                 android:layout_width="40dp"
                 android:layout_height="4dp"
-                android:layout_marginLeft="@dimen/spacing_medium"
                 android:layout_marginStart="@dimen/spacing_medium"
-                android:background="@color/blue_600" />
+                android:layout_marginLeft="@dimen/spacing_medium"
+                android:background="@color/button_color" />
 
             <View
                 android:layout_width="0dp"
@@ -65,9 +66,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_bold"
+                        android:gravity="center"
                         android:text="USERNAME"
                         android:textAlignment="center"
-                        android:gravity="center"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
                         android:textColor="@color/grey_40" />
 
@@ -77,12 +79,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="-4dp"
                         android:layout_marginRight="-4dp"
+                        android:fontFamily="@font/poppins_regular"
                         android:inputType="text"
                         android:maxLength="50"
                         android:maxLines="1"
                         android:singleLine="true"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                        android:textColor="@color/blue_600"
+                        android:textColor="@color/button_color"
                         android:textStyle="bold"
                         android:theme="@style/EditText.Grey" />
 
@@ -93,9 +96,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="PASSWORD"
-                        android:textAlignment="center"
+                        android:fontFamily="@font/poppins_bold"
                         android:gravity="center"
+                        android:text="PASSWORD"
+
+                        android:textAlignment="center"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
                         android:textColor="@color/grey_40" />
 
@@ -105,12 +110,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="-4dp"
                         android:layout_marginRight="-4dp"
+                        android:fontFamily="@font/poppins_regular"
                         android:inputType="textPassword"
                         android:maxLength="50"
                         android:maxLines="1"
                         android:singleLine="true"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                        android:textColor="@color/blue_600"
+                        android:textColor="@color/button_color"
                         android:textStyle="bold"
                         android:theme="@style/EditText.Grey" />
 
@@ -125,8 +131,12 @@
                         android:layout_marginLeft="-4dp"
                         android:layout_marginTop="@dimen/spacing_middle"
                         android:layout_marginRight="-4dp"
+                        android:buttonTint="@color/button_color"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+
                         android:text="Keep me Signed in"
-                        android:textColor="@color/blue_600"
+                        android:textColor="@color/button_color"
                         android:textStyle="bold"
                         android:theme="@style/Checkbox.Blue" />
 
@@ -134,19 +144,19 @@
                         android:layout_width="0dp"
                         android:layout_height="@dimen/spacing_middle" />
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/forgot_password"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_gravity="right|end"-->
-<!--                        android:layout_marginTop="@dimen/spacing_medium"-->
-<!--                        android:clickable="true"-->
-<!--                        android:text="Forgot Password ?"-->
-<!--                        android:textAlignment="center"-->
-<!--                        android:gravity="center"-->
-<!--                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"-->
-<!--                        android:textColor="@color/grey_20"-->
-<!--                        android:textStyle="bold" />-->
+                    <!--                    <TextView-->
+                    <!--                        android:id="@+id/forgot_password"-->
+                    <!--                        android:layout_width="wrap_content"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_gravity="right|end"-->
+                    <!--                        android:layout_marginTop="@dimen/spacing_medium"-->
+                    <!--                        android:clickable="true"-->
+                    <!--                        android:text="Forgot Password ?"-->
+                    <!--                        android:textAlignment="center"-->
+                    <!--                        android:gravity="center"-->
+                    <!--                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"-->
+                    <!--                        android:textColor="@color/grey_20"-->
+                    <!--                        android:textStyle="bold" />-->
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -160,26 +170,26 @@
     </RelativeLayout>
 
     <ProgressBar
-        android:visibility="gone"
-        android:layout_gravity="center"
-        android:layout_height="50dp"
-        android:layout_width="50dp"
         android:id="@+id/progressbar"
-        />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:visibility="gone" />
 
     <com.balysv.materialripple.MaterialRippleLayout
-        android:visibility="visible"
         android:id="@+id/sign_in"
         style="@style/RippleStyleWhite"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentBottom="true"
-        android:background="@color/blue_600">
+        android:background="@color/button_color"
+        android:visibility="visible">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/poppins_bold"
             android:text="SIGN IN"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
             android:textColor="@android:color/white" />

@@ -30,12 +30,13 @@
             android:animateLayoutChanges="true"
             app:tabGravity="fill"
             app:tabIndicator="@drawable/btn_corner3"
-            app:tabIndicatorColor="@color/blue_600"
+            app:tabIndicatorColor="@color/button_color"
             app:tabIndicatorFullWidth="false"
             app:tabIndicatorHeight="3dp"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/blue_600"
-            app:tabTextAppearance="@style/TextAppearance.Subhead.Bold"
+
+            app:tabSelectedTextColor="@color/button_color"
+            app:tabTextAppearance="@style/tab_text"
             app:tabTextColor="@color/grey_60" />
 
     </com.google.android.material.appbar.AppBarLayout>

@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.Agent" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/button_color</item>
+        <item name="colorPrimaryVariant">@color/grey_5</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -153,7 +153,9 @@
         <item name="colorControlHighlight">#26000000</item>
         <item name="listPreferredItemHeightSmall">60dp</item>
     </style>
-
+    <style name="tab_text" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
     <style name="Toolbar.Light" parent="Theme.Agent">
         <item name="colorControlNormal">@color/grey_60</item>
         <item name="android:textColorPrimary">@color/grey_60</item>

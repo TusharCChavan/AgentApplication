@@ -20,9 +20,9 @@
 
             <TextView
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_xlarge"
+                android:fontFamily="@font/poppins_bold"
                 android:text="Register Customer/Patient"
                 android:textSize="18sp" />
 
@@ -38,7 +38,10 @@
                     android:id="@+id/radio_one"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:buttonTint="#00a894"
                     android:checked="false"
+
+                    android:fontFamily="@font/poppins_regular"
                     android:text="Scan Adhar Card " />
 
                 <!--                <View-->
@@ -54,7 +57,9 @@
                     android:id="@+id/radio_two"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/radio_btn_color"
                     android:checked="true"
+                    android:fontFamily="@font/poppins_regular"
                     android:text="Enter Manually" />
 
 
@@ -71,7 +76,9 @@
                     android:id="@+id/mobile"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
                     android:hint="Mobile Number"
+
                     android:inputType="number"
                     android:paddingBottom="16.0dip" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -86,8 +93,10 @@
                     android:id="@+id/username"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
                     android:hint="Username"
                     android:inputType="text"
+
                     android:paddingBottom="16.0dip" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -101,8 +110,10 @@
                     android:id="@+id/full_name"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
                     android:hint="Full Name"
                     android:inputType="text"
+
                     android:paddingBottom="16.0dip" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -117,7 +128,9 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:focusable="false"
+                    android:fontFamily="@font/poppins_regular"
                     android:hint="DOB"
+
                     android:paddingBottom="16.0dip" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,7 +144,9 @@
                     android:id="@+id/address"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
                     android:hint="Address"
+
                     android:inputType="text"
                     android:paddingBottom="16.0dip" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -146,9 +161,11 @@
                     android:id="@+id/pincode"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:maxLength="6"
+                    android:fontFamily="@font/poppins_regular"
                     android:hint="Pin Code"
                     android:inputType="number"
+
+                    android:maxLength="6"
                     android:paddingBottom="16.0dip" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -162,6 +179,8 @@
                     android:id="@+id/city"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+        android:inputType="text"
                     android:hint="City"
                     android:paddingBottom="16.0dip" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -176,8 +195,9 @@
                     android:id="@+id/state"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
                     android:hint="State"
-
+android:inputType="text"
                     android:paddingBottom="16.0dip" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -229,7 +249,9 @@
                     android:id="@+id/otp"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
                     android:hint="OTP"
+
                     android:inputType="number"
                     android:paddingBottom="16.0dip" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -245,7 +267,9 @@
                     android:id="@+id/amount"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
                     android:hint="Amount"
+
                     android:inputType="number"
                     android:paddingBottom="16.0dip" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -260,12 +284,13 @@
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
-        android:background="@color/blue_600">
+        android:background="@color/button_color">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/poppins_semibold"
             android:text="REGISTER"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
             android:textColor="@android:color/white" />

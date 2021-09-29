@@ -224,7 +224,7 @@ public class FragmentTabsScanRegistration extends Fragment {
                     );
                     //set dark light
                     datePicker.setThemeDark(false);
-                    datePicker.setAccentColor(getResources().getColor(R.color.colorPrimary));
+                    datePicker.setAccentColor(getResources().getColor(R.color.button_color));
                     datePicker.setMaxDate(cur_calender);
                     datePicker.show(getActivity().getFragmentManager(), "Datepickerdialog");
                 }

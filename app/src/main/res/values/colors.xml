@@ -316,6 +316,8 @@
     <color name="grey_800">#424242</color>
     <color name="grey_900">#212121</color>
     <color name="grey_1000">#1a1a1a</color>
+    <color name="button_color">#0b94a9</color>
+    <color name="radio_btn_color">#00a894</color>
 
 
     <!--for random color generator -->

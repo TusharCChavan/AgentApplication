@@ -1,4 +1,5 @@
 package com.chqup.agent;
+
 import java.util.*;
 
 import androidx.annotation.NonNull;
@@ -40,12 +41,13 @@ public class QRScanner extends AppCompatActivity implements ZXingScannerView.Res
 
         zXingScannerView = new ZXingScannerView(this);
         setContentView(zXingScannerView);
-
+        Tools.setSystemBarColor(this, R.color.grey_5);
+        Tools.setSystemBarLight(this);
     }
 
     @Override
     public void handleResult(Result result) {
-        Log.d("daat",result.getText());
+        Log.d("daat", result.getText());
         processScannedData(result.getText());
     }
 
@@ -81,8 +83,8 @@ public class QRScanner extends AppCompatActivity implements ZXingScannerView.Res
         }
     }
 
-    protected void processScannedData(String scanData){
-        Log.d("sahil",scanData);
+    protected void processScannedData(String scanData) {
+        Log.d("sahil", scanData);
         XmlPullParserFactory pullParserFactory;
         try {
             // init the parserfactory
@@ -94,16 +96,16 @@ public class QRScanner extends AppCompatActivity implements ZXingScannerView.Res
             // parse the XML
             int eventType = parser.getEventType();
             while (eventType != XmlPullParser.END_DOCUMENT) {
-                if(eventType == XmlPullParser.START_DOCUMENT) {
-                    Log.d("sahil","Start document");
-                } else if(eventType == XmlPullParser.START_TAG) {
+                if (eventType == XmlPullParser.START_DOCUMENT) {
+                    Log.d("sahil", "Start document");
+                } else if (eventType == XmlPullParser.START_TAG) {
                     // extract data from tag
                     //name
 
                     try {
-                        name = parser.getAttributeValue(null, DataAttributes.AADHAR_NAME_ATTR) == null ? parser.getAttributeValue(null, "n") == null ? "" : parser.getAttributeValue(null, "n") :  parser.getAttributeValue(null, DataAttributes.AADHAR_NAME_ATTR);
+                        name = parser.getAttributeValue(null, DataAttributes.AADHAR_NAME_ATTR) == null ? parser.getAttributeValue(null, "n") == null ? "" : parser.getAttributeValue(null, "n") : parser.getAttributeValue(null, DataAttributes.AADHAR_NAME_ATTR);
                         //gender
-                        gender = parser.getAttributeValue(null, DataAttributes.AADHAR_GENDER_ATTR) == null ? parser.getAttributeValue(null, "g") == null ? "" : parser.getAttributeValue(null, "g"): parser.getAttributeValue(null, DataAttributes.AADHAR_GENDER_ATTR);
+                        gender = parser.getAttributeValue(null, DataAttributes.AADHAR_GENDER_ATTR) == null ? parser.getAttributeValue(null, "g") == null ? "" : parser.getAttributeValue(null, "g") : parser.getAttributeValue(null, DataAttributes.AADHAR_GENDER_ATTR);
                         //address
                         address = parser.getAttributeValue(null, DataAttributes.AADHAR_ADDRESS_ATTR) == null ? parser.getAttributeValue(null, "a") == null ? "" : parser.getAttributeValue(null, "a") : parser.getAttributeValue(null, DataAttributes.AADHAR_ADDRESS_ATTR);
                         //dob
@@ -115,8 +117,7 @@ public class QRScanner extends AppCompatActivity implements ZXingScannerView.Res
                         //dist
                         pc = parser.getAttributeValue(null, DataAttributes.AADHAR_PC_ATTR) == null ? "" : parser.getAttributeValue(null, DataAttributes.AADHAR_PC_ATTR);
 
-                        if(address.isEmpty())
-                        {
+                        if (address.isEmpty()) {
                             address = parser.getAttributeValue(null, "loc") == null ? "location" : parser.getAttributeValue(null, "loc");
                         }
 
@@ -124,46 +125,40 @@ public class QRScanner extends AppCompatActivity implements ZXingScannerView.Res
                         Toast.makeText(getApplicationContext(), name, Toast.LENGTH_SHORT).show();
 
 
-                        startActivity(new Intent(getApplicationContext(),MainActivity.class)
-                                .putExtra("comesfrom","scanner")
-                                .putExtra("username",name)
-                                .putExtra("dob",dob)
-                                .putExtra("address",address)
-                                .putExtra("gender",gender)
-                                .putExtra("state",state)
-                                .putExtra("dist",dist)
-                                .putExtra("pc",pc)
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class)
+                                .putExtra("comesfrom", "scanner")
+                                .putExtra("username", name)
+                                .putExtra("dob", dob)
+                                .putExtra("address", address)
+                                .putExtra("gender", gender)
+                                .putExtra("state", state)
+                                .putExtra("dist", dist)
+                                .putExtra("pc", pc)
                         );
 
                         finish();
 
 
-
-                    }
-                    catch(Exception ex)
-                    {
+                    } catch (Exception ex) {
 
 
-                        Toast.makeText(getApplicationContext(), ""+ex.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                    finally {
+                        Toast.makeText(getApplicationContext(), "" + ex.getMessage(), Toast.LENGTH_SHORT).show();
+                    } finally {
 
                     }
 
 
-
-
-                } else if(eventType == XmlPullParser.END_TAG) {
-                    Log.d("sahil","End tag "+parser.getName());
-                } else if(eventType == XmlPullParser.TEXT) {
-                    Log.d("sahil","Text "+parser.getText());
+                } else if (eventType == XmlPullParser.END_TAG) {
+                    Log.d("sahil", "End tag " + parser.getName());
+                } else if (eventType == XmlPullParser.TEXT) {
+                    Log.d("sahil", "Text " + parser.getText());
                 }
 
                 // update eventType
                 eventType = parser.next();
             }
             // display the data on screen
-           // displayScannedData();
+            // displayScannedData();
         } catch (XmlPullParserException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -171,18 +166,17 @@ public class QRScanner extends AppCompatActivity implements ZXingScannerView.Res
         }
     }// EO function
 
-    String name="",gender="",address="",dob="",state = "",dist="",pc = "";
+    String name = "", gender = "", address = "", dob = "", state = "", dist = "", pc = "";
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
 
-        startActivity(new Intent(getApplicationContext(),MainActivity.class)
-                .putExtra("comesfrom","no")
+        startActivity(new Intent(getApplicationContext(), MainActivity.class)
+                .putExtra("comesfrom", "no")
         );
     }
 }
-
 
 
 class DataAttributes {

@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         //  toolbar.setNavigationIcon(R.drawable.ic_menu);
         // toolbar.getNavigationIcon().setColorFilter(getResources().getColor(R.color.grey_60), PorterDuff.Mode.SRC_ATOP);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Franchise/Executive");
+        getSupportActionBar().setTitle("CHQUP Agent");
         // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Tools.setSystemBarColor(this, R.color.grey_5);
         Tools.setSystemBarLight(this);
