@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.balysv.materialripple.MaterialRippleLayout;
+import com.bumptech.glide.Glide;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -37,20 +39,21 @@ public class LoginCardActivity extends AppCompatActivity {
     TextInputEditText username, password;
     AppCompatCheckBox check;
 
+    ImageView logo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_card);
 
-        if (checkOut().equals("0"))
-        {
-            startActivity(new Intent(getApplicationContext(), MainActivity.class).putExtra("comesfrom","no"));
+        if (checkOut().equals("0")) {
+            startActivity(new Intent(getApplicationContext(), MainActivity.class).putExtra("comesfrom", "no"));
             finish();
         }
 
         mQueue = Volley.newRequestQueue(this);
 
+        logo = findViewById(R.id.logo);
         check = findViewById(R.id.check);
         parent_view = findViewById(android.R.id.content);
         sign_in = findViewById(R.id.sign_in);
@@ -59,18 +62,16 @@ public class LoginCardActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
 
-        Tools.setSystemBarColor(this, R.color.grey_5);
-        Tools.setSystemBarLight(this);
 
+        Tools.setSystemBarColor(this, R.color.button_color);
+        Tools.setSystemBarLight(this);
+        Glide.with(this).load(R.mipmap.ic_launcher).asBitmap().into(logo);
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(check.isChecked())
-                {
+                if (check.isChecked()) {
                     check.setChecked(true);
-                }
-                else
-                {
+                } else {
                     check.setChecked(false);
                 }
             }
@@ -97,6 +98,7 @@ public class LoginCardActivity extends AppCompatActivity {
 //                Snackbar.make(parent_view, "Forgot Password", Snackbar.LENGTH_SHORT).show();
 //            }
 //        });
+
     }
 
 
@@ -116,13 +118,12 @@ public class LoginCardActivity extends AppCompatActivity {
                 if (response.length() != 0) {
                     if (response.charAt(0) != 'F') {
 
-                        if(check.isChecked())
-                        {
-                            insertData(pass,username,"null","null");
+                        if (check.isChecked()) {
+                            insertData(pass, username, "null", "null");
                         }
 
                         Toast.makeText(LoginCardActivity.this, "Done", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class).putExtra("comesfrom","no"));
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class).putExtra("comesfrom", "no"));
                         finish();
                     } else {
                         Toast.makeText(LoginCardActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
@@ -156,11 +157,9 @@ public class LoginCardActivity extends AppCompatActivity {
     }
 
 
-
-
     SQLiteDatabase db;
-    void insertData(String aid,String username,String usergmail,String userimage)
-    {
+
+    void insertData(String aid, String username, String usergmail, String userimage) {
         Cursor c = null;
 
 
@@ -170,21 +169,21 @@ public class LoginCardActivity extends AppCompatActivity {
         db.execSQL(sql);
 
         ContentValues values = new ContentValues();
-        values.put("indeval","0");
-        values.put("aid","");
-        values.put("username","");
-        values.put("usergmail","");
-        values.put("userimage","");
+        values.put("indeval", "0");
+        values.put("aid", "");
+        values.put("username", "");
+        values.put("usergmail", "");
+        values.put("userimage", "");
 
-        db.insert("userdata",null,values);
+        db.insert("userdata", null, values);
 
         db.execSQL("update userdata set aid='" + aid + "' where indeval='" + "0" + "';");
         db.execSQL("update userdata set username='" + username + "' where indeval='" + "0" + "';");
         db.execSQL("update userdata set usergmail='" + usergmail + "' where indeval='" + "0" + "';");
         db.execSQL("update userdata set userimage='" + userimage + "' where indeval='" + "0" + "';");
     }
-    String checkOut()
-    {
+
+    String checkOut() {
         Cursor c = null;
         String i = "";
         db = openOrCreateDatabase("UserData", MODE_PRIVATE, null);

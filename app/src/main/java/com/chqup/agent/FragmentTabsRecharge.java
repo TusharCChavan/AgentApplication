@@ -41,12 +41,11 @@ import java.util.Map;
 public class FragmentTabsRecharge extends Fragment {
     private String[] array_recharge;
     private String[] usernamedata;
-    TextInputEditText recharge_type,mobile,amount,otp,username;
+    TextInputEditText recharge_type, mobile, amount, otp, username;
     private RequestQueue mQueue;
     ProgressBar progressBar;
     TextView verify;
     MaterialRippleLayout register;
-
 
 
     public FragmentTabsRecharge() {
@@ -111,20 +110,17 @@ public class FragmentTabsRecharge extends Fragment {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(username.getText().toString().isEmpty()
+                if (username.getText().toString().isEmpty()
                         || recharge_type.getText().toString().isEmpty()
                         || mobile.getText().toString().isEmpty()
                         || amount.getText().toString().isEmpty()
                         || otp.getText().toString().isEmpty()
-                )
-                {
+                ) {
                     Toast.makeText(getContext(), "complete all fields", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                   // Toast.makeText(getContext(), username.getText().toString(), Toast.LENGTH_SHORT).show();
-                    rechargeNow(recharge_type.getText().toString(),username.getText().toString(),
-                            amount.getText().toString(),otp.getText().toString());
+                } else {
+                    // Toast.makeText(getContext(), username.getText().toString(), Toast.LENGTH_SHORT).show();
+                    rechargeNow(recharge_type.getText().toString(), username.getText().toString(),
+                            amount.getText().toString(), otp.getText().toString());
                 }
             }
         });
@@ -132,8 +128,7 @@ public class FragmentTabsRecharge extends Fragment {
         verify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mobile.getText().toString().length() == 10)
-                {
+                if (mobile.getText().toString().length() == 10) {
                     verifyMobileno(mobile.getText().toString());
                 }
             }
@@ -156,8 +151,7 @@ public class FragmentTabsRecharge extends Fragment {
         return root;
     }
 
-    void verifyMobileno(String mobileno)
-    {
+    void verifyMobileno(String mobileno) {
 
         mQueue = Volley.newRequestQueue(getContext());
 
@@ -168,22 +162,20 @@ public class FragmentTabsRecharge extends Fragment {
         String url = "https://www.chqup.com/agent/renewal_user.php";
 
 
-
         StringRequest request = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response.length() != 0) {
 
-                    List<HashMap<String,String>> hashMap = convertToHashMap(response);
+                    List<HashMap<String, String>> hashMap = convertToHashMap(response);
 
-                //    Toast.makeText(getActivity(), ""+hashMap.toString(), Toast.LENGTH_SHORT).show();
+                    //    Toast.makeText(getActivity(), ""+hashMap.toString(), Toast.LENGTH_SHORT).show();
 
 
                     usernamedata = new String[hashMap.size()];
 
-                    for(int i=0;i<hashMap.size();i++)
-                    {
-                     usernamedata[i] = hashMap.get(i).get("username");
+                    for (int i = 0; i < hashMap.size(); i++) {
+                        usernamedata[i] = hashMap.get(i).get("username");
                     }
 
 
@@ -225,24 +217,24 @@ public class FragmentTabsRecharge extends Fragment {
         try {
             JSONArray jArray = new JSONArray(jsonString);
             JSONObject jObject = null;
-            String keyString=null;
+            String keyString = null;
             for (int i = 0; i < jArray.length(); i++) {
                 jObject = jArray.getJSONObject(i);
 
-          //      Toast.makeText(getContext(), ""+jObject.toString(), Toast.LENGTH_LONG).show();
+                //      Toast.makeText(getContext(), ""+jObject.toString(), Toast.LENGTH_LONG).show();
                 // beacuse you have only one key-value pair in each object so I have used index 0
                 HashMap<String, String> myHashMap = new HashMap<String, String>();
 
-                keyString = (String)jObject.names().get(0);
+                keyString = (String) jObject.names().get(0);
                 myHashMap.put(keyString, jObject.getString(keyString));
 
-                keyString = (String)jObject.names().get(1);
+                keyString = (String) jObject.names().get(1);
                 myHashMap.put(keyString, jObject.getString(keyString));
 
                 myHashMapList.add(myHashMap);
 
 
-              //  Toast.makeText(getContext(), ""+myHashMapList.toString(), Toast.LENGTH_LONG).show();
+                //  Toast.makeText(getContext(), ""+myHashMapList.toString(), Toast.LENGTH_LONG).show();
             }
         } catch (JSONException e) {
             // TODO Auto-generated catch block
@@ -253,8 +245,7 @@ public class FragmentTabsRecharge extends Fragment {
 
     String getOtp = "";
 
-    void sendOtp(String name)
-    {
+    void sendOtp(String name) {
 
         mQueue = Volley.newRequestQueue(getContext());
 
@@ -263,7 +254,6 @@ public class FragmentTabsRecharge extends Fragment {
         register.setVisibility(View.GONE);
 
         String url = "https://www.chqup.com/agent/renewal_user.php";
-
 
 
         StringRequest request = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
@@ -304,10 +294,8 @@ public class FragmentTabsRecharge extends Fragment {
 
     }
 
-    void rechargeNow(String selectedplan,String user,String amount,String otp1)
-    {
-        if(otp1.equalsIgnoreCase(getOtp))
-        {
+    void rechargeNow(String selectedplan, String user, String amount, String otp1) {
+        if (otp1.equalsIgnoreCase(getOtp)) {
 
             mQueue = Volley.newRequestQueue(getContext());
 
@@ -318,12 +306,11 @@ public class FragmentTabsRecharge extends Fragment {
             String url = "https://www.chqup.com/agent/renewal_user.php";
 
 
-
             StringRequest request = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     if (response.length() != 0) {
-                        Toast.makeText(getContext(), ""+response, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "" + response, Toast.LENGTH_SHORT).show();
 
                         username.setText("");
                         mobile.setText("");
@@ -362,16 +349,13 @@ public class FragmentTabsRecharge extends Fragment {
             };
 
             mQueue.add(request);
-        }
-        else
-        {
+        } else {
             Toast.makeText(getContext(), "Wrong otp", Toast.LENGTH_SHORT).show();
         }
     }
 
 
-    void getAmmount()
-    {
+    void getAmmount() {
         mQueue = Volley.newRequestQueue(getContext());
 
 
@@ -379,7 +363,6 @@ public class FragmentTabsRecharge extends Fragment {
         register.setVisibility(View.GONE);
 
         String url = "https://www.chqup.com/agent/renewal_user.php";
-
 
 
         StringRequest request = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {

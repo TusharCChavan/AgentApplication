@@ -3,13 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey_5"
     android:orientation="vertical">
 
-    <RelativeLayout
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:orientation="vertical"
+    >
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:background="@color/button_color">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -17,6 +22,13 @@
             android:layout_centerInParent="true"
             android:orientation="vertical"
             android:padding="@dimen/spacing_smlarge">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="68dp"
+                android:layout_height="68dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_launcher" />
 
             <View
                 android:layout_width="0dp"
@@ -31,7 +43,7 @@
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Sign In"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textColor="@color/button_color"
+                android:textColor="@color/white"
                 android:textStyle="bold" />
 
             <View
@@ -39,7 +51,7 @@
                 android:layout_height="4dp"
                 android:layout_marginStart="@dimen/spacing_medium"
                 android:layout_marginLeft="@dimen/spacing_medium"
-                android:background="@color/button_color" />
+                android:background="@color/white" />
 
             <View
                 android:layout_width="0dp"
@@ -167,8 +179,8 @@
 
         </LinearLayout>
 
-    </RelativeLayout>
-
+    </LinearLayout>
+</LinearLayout>
     <ProgressBar
         android:id="@+id/progressbar"
         android:layout_width="50dp"
@@ -182,7 +194,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentBottom="true"
-        android:background="@color/button_color"
+        android:background="@color/white"
         android:visibility="visible">
 
         <TextView
@@ -192,7 +204,7 @@
             android:fontFamily="@font/poppins_bold"
             android:text="SIGN IN"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-            android:textColor="@android:color/white" />
+            android:textColor="@color/button_color" />
     </com.balysv.materialripple.MaterialRippleLayout>
 
 </LinearLayout>

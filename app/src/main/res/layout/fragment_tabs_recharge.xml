@@ -13,19 +13,21 @@
             android:layout_width="fill_parent"
             android:layout_height="0.0dip"
 
-            android:layout_margin="@dimen/spacing_medium"
+            android:layout_marginLeft="@dimen/spacing_medium"
+            android:layout_marginRight="@dimen/spacing_medium"
+            android:layout_marginTop="@dimen/spacing_large"
             android:layout_weight="1.0"
             android:background="@android:color/white"
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_xlarge"
-                android:text="Renewal Customer/ Patient"
-                android:fontFamily="@font/poppins_bold"
-                android:textSize="18sp" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/spacing_large"-->
+<!--                android:text="Renewal Customer/ Patient"-->
+<!--                android:fontFamily="@font/poppins_bold"-->
+<!--                android:textSize="18sp" />-->
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -41,7 +43,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:hint="Mobile Number"
                     android:inputType="number"
-                    android:paddingBottom="16.0dip" />
+                    android:padding="14.0dip" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -78,7 +80,7 @@
 
                     android:hint="Username"
 
-                    android:paddingBottom="16.0dip" />
+                    android:padding="14.0dip" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -98,7 +100,7 @@
                     android:hint="Recharge Type"
                     android:fontFamily="@font/poppins_regular"
 
-                    android:paddingBottom="16.0dip" />
+                    android:padding="14.0dip" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -117,7 +119,7 @@
                     android:fontFamily="@font/poppins_regular"
 
                     android:inputType="number"
-                    android:paddingBottom="16.0dip" />
+                    android:padding="14.0dip" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -134,7 +136,7 @@
                     android:fontFamily="@font/poppins_regular"
 
                     android:inputType="number"
-                    android:paddingBottom="16.0dip" />
+                    android:padding="14.0dip" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
